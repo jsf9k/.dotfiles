@@ -1,0 +1,5 @@
+# No startup message
+startup_message off
+
+# Make new shells inherit environment variables
+shell -/bin/bash

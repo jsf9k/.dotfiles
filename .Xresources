@@ -1,0 +1,21 @@
+! emacs
+!emacs.modeLine.backgroundColor: #D8A315
+
+! urxvt
+Rxvt.background:        black
+Rxvt.foreground:        white
+Rxvt.cursorColor:       white
+Rxvt.scrollBar:         False
+Rxvt.saveLines:         65535
+Rxvt.font:              xft:Mono
+Rxvt.boldFont:          xft:Mono
+!URxvt.letterSpace:      -1
+
+! UXTerm
+UXTerm.vt100.background:  black
+UXTerm.vt100.foreground:  white
+UXTerm.vt100.cursorColor: white
+UXTerm.vt100.scrollBar:   False
+UXTerm.vt100.saveLines:   65535
+UXTerm.vt100.font:        xft:Mono
+UXTerm.vt100.boldFont:    xft:Mono
