@@ -3,3 +3,6 @@ startup_message off
 
 # Make new shells inherit environment variables
 shell -/bin/bash
+
+# Allow lots of colors
+term xterm-256color
