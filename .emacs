@@ -1,20 +1,20 @@
 ;; .emacs
 
+;; Add our lisp directory to the load path
+(add-to-list 'load-path "~/.emacs.d/lisp")
+
 ;;; uncomment this line to disable loading of "default.el" at startup
 (setq inhibit-default-init t)
 
-;; Add our lisp directory to the load path
-(add-to-list 'load-path "~/.emacs.d/lisp")
+;; Turn off the blinking cursor
+(blink-cursor-mode 0)
 
 ;; turn on font-lock mode
 (when (fboundp 'global-font-lock-mode)
   (global-font-lock-mode t))
 
-;; Turn of the blinking cursor
-(blink-cursor-mode 0)
-
 ;; enable visual feedback on selections
-;(setq transient-mark-mode t)
+(setq transient-mark-mode t)
 
 ;; default to better frame titles
 (setq frame-title-format
@@ -77,14 +77,74 @@
 ;; Use lilypond mode
 (require 'lilypond-mode)
 
-;; Use pdflatex instead of latex
-(setq latex-run-command "pdflatex")
-
 ;; Use Opera as the generic URL browser
 (setq browse-url-generic-program "uzbl-tabbed")
 
 ;; Ratpoison
 (load-file "/usr/local/share/emacs/site-lisp/ratpoison.el")
+
+;; load CLIPS mode
+(load "clips-mode") 
+
+;; load c# mode
+(load "csharp-mode") 
+
+;; Enable IDO mode
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+
+;; enable subword mode for C++
+(add-hook 'c++-mode-hook
+          '(lambda ()
+             (subword-mode)))
+
+;; enable subword mode for C
+(add-hook 'c-mode-hook
+          '(lambda ()
+             (subword-mode)))
+
+;; enable subword mode for python
+(add-hook 'python-mode-hook
+          '(lambda ()
+             (subword-mode)))
+
+;; enable subword mode for lisp
+(add-hook 'lisp-mode-hook
+          '(lambda ()
+             (subword-mode)))
+
+;; enable subword mode for java
+(add-hook 'java-mode-hook
+          '(lambda ()
+             (subword-mode)))
+
+;; enable flyspell mode for latex
+(add-hook 'latex-mode-hook
+          '(lambda ()
+             (flyspell-mode)))
+;; enable visual word wrap mode for latex
+(add-hook 'latex-mode-hook
+          '(lambda ()
+             (visual-line-mode)))
+
+;; Add Arduino ino files to c++-mode
+(add-to-list 'auto-mode-alist '("\\.ino\\'" . c++-mode))
+
+;; Add CLIPS files to clips-mode
+(add-to-list 'auto-mode-alist '("\\.clp\\'" . clips-mode))
+
+;; Use pdflatex instead of latex
+(setq latex-run-command "pdflatex --shell-escape")
+
+;; Map C-c SPACE to fixup-whitespace
+(global-set-key (kbd "C-c SPC") 'fixup-whitespace)
+ 
+;; Map C-x C-F to find-file-other-window
+(global-set-key (kbd "C-x C-S-f") 'find-file-other-window)
+
+;; I prefer a horizontal split
+(split-window-horizontally)
 
 ;; Map function keys to compile and debug
 (global-set-key (kbd "<f5>") 'compile)
