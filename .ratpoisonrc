@@ -8,7 +8,7 @@ set bgcolor green
 set fwcolor green
 
 # Commonly used apps
-bind a exec sh /usr/local/share/ratpoison/ratdate.sh
+bind a exec sh /usr/share/ratpoison/ratdate.sh
 bind b exec uzbl-tabbed
 bind B exec opera
 bind c exec urxvt
@@ -20,6 +20,9 @@ bind x exec xlock
 definekey top XF86AudioRaiseVolume exec amixer -q set Master 5+ unmute; ratpoison -c "echo Volume +5"
 definekey top XF86AudioLowerVolume exec amixer -q set Master 5- unmute;  ratpoison -c "echo Volume -5"
 definekey top XF86AudioMute exec amixer -q set Master toggle; ratpoison -c "echo [ MUTE ]"
+bind greater exec amixer -q set Master 5+ unmute; ratpoison -c "echo Volume +5"
+bind less exec amixer -q set Master 5- unmute;  ratpoison -c "echo Volume -5"
+bind l exec amixer -q set Master toggle; ratpoison -c "echo [ MUTE ]"
 
 # Music controls
 #definekey top XF86AudioPlay exec urxvt -e emacsclient -e "(emms-pause)"; ratpoison -c "echo toggle EMMS"

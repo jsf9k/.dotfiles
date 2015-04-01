@@ -1,9 +1,15 @@
 ;; .emacs
 
+;; Set up package installation
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+
 ;; Add our lisp directory to the load path
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
-;;; uncomment this line to disable loading of "default.el" at startup
+;;; Disable loading of "default.el" at startup
 (setq inhibit-default-init t)
 
 ;; Turn off the blinking cursor
@@ -75,19 +81,19 @@
 (require 'cmake-mode)
 
 ;; Use lilypond mode
-(require 'lilypond-mode)
+;(require 'lilypond-mode)
 
 ;; Use Opera as the generic URL browser
 (setq browse-url-generic-program "uzbl-tabbed")
 
 ;; Ratpoison
-(load-file "/usr/local/share/emacs/site-lisp/ratpoison.el")
+(load-file "/usr/share/emacs/site-lisp/ratpoison.el")
 
 ;; load CLIPS mode
-(load "clips-mode") 
+;(load "clips-mode") 
 
 ;; load c# mode
-(load "csharp-mode") 
+;(load "csharp-mode") 
 
 ;; Enable IDO mode
 (setq ido-enable-flex-matching t)
@@ -119,6 +125,16 @@
           '(lambda ()
              (subword-mode)))
 
+;; enable subword mode for scala
+(add-hook 'scala-mode-hook
+          '(lambda ()
+             (subword-mode)))
+
+;; enable subword mode for groovy
+(add-hook 'groovy-mode-hook
+          '(lambda ()
+             (subword-mode)))
+
 ;; enable flyspell mode for latex
 (add-hook 'latex-mode-hook
           '(lambda ()
@@ -128,11 +144,14 @@
           '(lambda ()
              (visual-line-mode)))
 
+;; Make emacs correctly handle colors in shell mode
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
 ;; Add Arduino ino files to c++-mode
 (add-to-list 'auto-mode-alist '("\\.ino\\'" . c++-mode))
 
 ;; Add CLIPS files to clips-mode
-(add-to-list 'auto-mode-alist '("\\.clp\\'" . clips-mode))
+;(add-to-list 'auto-mode-alist '("\\.clp\\'" . clips-mode))
 
 ;; Use pdflatex instead of latex
 (setq latex-run-command "pdflatex --shell-escape")
