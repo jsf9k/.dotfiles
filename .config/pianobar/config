@@ -1,0 +1,3 @@
+user = XXX@XXX.XXX
+password = XXXXX
+event_command = /home/sfrasier/.config/pianobar/eventcommand.sh
