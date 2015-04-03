@@ -56,11 +56,8 @@
 (semantic-mode 1)
 (global-semantic-decoration-mode 1)
 
-;; Use "M-x list-faces-display" to see the current colors.
-(set-cursor-color "green")
-(set-foreground-color "#FFFFFF")
-(set-background-color "#111111")
-;(set-face-background 'mode-line "#D8A315")
+;; Load a nice theme
+(load-theme 'deeper-blue)
 
 ;; Have ediff split windows horizontally
 (setq ediff-split-window-function 'split-window-horizontally)
@@ -69,7 +66,7 @@
 (require 'xcscope)
 
 ;; Use psvn
-;(require 'psvn)
+;;(require 'psvn)
 
 ;; Try to preserve the window configuration when doing things like diff or ediff
 (setq svn-status-preserve-window-configuration t)
@@ -88,12 +85,6 @@
 
 ;; Ratpoison
 (load-file "/usr/share/emacs/site-lisp/ratpoison.el")
-
-;; load CLIPS mode
-;(load "clips-mode") 
-
-;; load c# mode
-;(load "csharp-mode") 
 
 ;; Enable IDO mode
 (setq ido-enable-flex-matching t)
@@ -149,9 +140,6 @@
 
 ;; Add Arduino ino files to c++-mode
 (add-to-list 'auto-mode-alist '("\\.ino\\'" . c++-mode))
-
-;; Add CLIPS files to clips-mode
-;(add-to-list 'auto-mode-alist '("\\.clp\\'" . clips-mode))
 
 ;; Use pdflatex instead of latex
 (setq latex-run-command "pdflatex --shell-escape")
