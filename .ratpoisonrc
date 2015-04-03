@@ -3,9 +3,12 @@ startup_message off
 
 addhook key banish
 
-set border 2
-set bgcolor green
-set fwcolor green
+set border 5
+set font xft:inconsolata:style=bold:size=10:antialias=true
+set fgcolor #eee8d5
+set bgcolor #657b83
+set bwcolor #002b36
+set fwcolor #657b83
 
 # Commonly used apps
 bind a exec sh /usr/share/ratpoison/ratdate.sh
