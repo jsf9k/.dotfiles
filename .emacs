@@ -56,9 +56,6 @@
 (semantic-mode 1)
 (global-semantic-decoration-mode 1)
 
-;; Load a nice theme
-(load-theme 'deeper-blue)
-
 ;; Have ediff split windows horizontally
 (setq ediff-split-window-function 'split-window-horizontally)
 
@@ -160,3 +157,20 @@
 (global-set-key (kbd "<f7>") 'shell)
 ;; Map function key to undo
 (global-set-key (kbd "<f12>") 'undo)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; Load a nice theme
+(load-theme 'solarized-dark)
