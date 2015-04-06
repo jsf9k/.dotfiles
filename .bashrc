@@ -34,15 +34,6 @@ man() {
 }
 
 #PS1='[\u@\h \W]\$ '
-PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] \[\e[1;37m\]'
+PS1='\[\e[0;32m\]\u@\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] \[\e[1;37m\]'
 # For root
-#PS1='\[\e[0;31m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[0;31m\]\$ \[\e[m\]\[\e[0;32m\]'
-
-# For Hadoop
-export JAVA_HOME=/usr/lib/jvm/default
-export HADOOP_HOME=$HOME/hadoop-2.6.0
-export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
-
-# For Hive
-export HIVE_HOME=$HOME/apache-hive-1.1.0-bin
-export PATH=$PATH:$HIVE_HOME/bin
+#PS1='\[\e[0;31m\]\u@\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[0;31m\]\$ \[\e[m\]\[\e[0;32m\]'
