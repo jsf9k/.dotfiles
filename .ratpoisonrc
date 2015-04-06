@@ -4,7 +4,7 @@ startup_message off
 addhook key banish
 
 set border 5
-set font xft:inconsolata:style=bold:size=10:antialias=true
+set font inconsolata:style=bold:size=12:antialias=true
 set fgcolor #eee8d5
 set bgcolor #657b83
 set bwcolor #002b36
