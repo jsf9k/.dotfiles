@@ -6,6 +6,7 @@
 [[ $- != *i* ]] && return
 
 export EDITOR=emacs
+export BROWSER=opera
 
 eval $(dircolors -b)
 alias ls='ls --color=auto'
@@ -37,3 +38,5 @@ man() {
 PS1='\[\e[0;32m\]\u@\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] \[\e[1;37m\]'
 # For root
 #PS1='\[\e[0;31m\]\u@\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[0;31m\]\$ \[\e[m\]\[\e[0;32m\]'
+
+export PATH=$PATH:$HOME/bin
