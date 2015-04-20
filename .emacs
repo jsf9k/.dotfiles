@@ -123,6 +123,11 @@
           '(lambda ()
              (subword-mode)))
 
+;; enable subword mode for javascript
+(add-hook 'js-mode-hook
+          '(lambda ()
+             (subword-mode)))
+
 ;; enable flyspell mode for latex
 (add-hook 'latex-mode-hook
           '(lambda ()
