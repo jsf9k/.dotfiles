@@ -123,6 +123,11 @@
           '(lambda ()
              (subword-mode)))
 
+;; enable subword mode for CMake
+(add-hook 'cmake-mode-hook
+          '(lambda ()
+             (subword-mode)))
+
 ;; enable subword mode for javascript
 (add-hook 'js-mode-hook
           '(lambda ()
