@@ -75,13 +75,13 @@
 (require 'cmake-mode)
 
 ;; Use lilypond mode
-;(require 'lilypond-mode)
+(require 'lilypond-mode)
 
 ;; Use Opera as the generic URL browser
-(setq browse-url-generic-program "uzbl-tabbed")
+(setq browse-url-generic-program "opera")
 
 ;; Ratpoison
-(load-file "/usr/share/emacs/site-lisp/ratpoison.el")
+(require 'ratpoison)
 
 ;; Enable IDO mode
 (setq ido-enable-flex-matching t)
