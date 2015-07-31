@@ -1,0 +1,8 @@
+[push]
+	default = simple
+[http]
+	sslVerify = true
+[rebase]
+	autosquash = true
+[branch]
+	autosetuprebase = always
