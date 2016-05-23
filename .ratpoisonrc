@@ -13,9 +13,10 @@ set fwcolor #657b83
 # Commonly used apps
 bind a exec sh /usr/share/ratpoison/ratdate.sh
 bind b exec uzbl-tabbed
-bind B exec opera
+bind B exec chromium
 bind c exec urxvt
 bind e exec emacs
+bind h exec HipChat4
 bind m exec thunderbird
 bind x exec xlock
 

@@ -6,3 +6,5 @@
 	autosquash = true
 [branch]
 	autosetuprebase = always
+[color]
+	ui = auto

@@ -1,5 +1,5 @@
-# Fix the screen resolution
-xrandr --dpi 192
+# Setup my monitors
+/home/sfrasier/bin/setup_monitors
 
 # Merge in my X resources
 [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
@@ -14,7 +14,10 @@ xsetroot -cursor_name left_ptr &
 sh ~/.fehbg &
 
 # Ignore the touchpad unless I have stopped typing for 3 seconds
-syndaemon -d -k -i 3.0 &
+#syndaemon -d -k -i 3.0 &
+
+# Turn off the touchpad
+synclient TouchpadOff=1
 
 # Turn on numlock
 numlockx
