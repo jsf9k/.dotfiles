@@ -14,9 +14,8 @@ set fwcolor #657b83
 bind a exec sh /usr/share/ratpoison/ratdate.sh
 bind b exec uzbl-tabbed
 bind B exec chromium
-bind c exec urxvt
-bind e exec emacs
-bind h exec HipChat4
+bind c exec ssh-agent urxvt
+bind e exec ssh-agent emacs
 bind m exec thunderbird
 bind x exec xlock
 

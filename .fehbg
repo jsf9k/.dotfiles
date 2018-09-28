@@ -1,1 +1,2 @@
-feh  --image-bg black --bg-max '/home/sfrasier/images/penguin_emperor.png' 
+#!/bin/sh
+feh --bg-max --image-bg 'black' '/home/jeremy_frasier/images/penguin_emperor.png' 

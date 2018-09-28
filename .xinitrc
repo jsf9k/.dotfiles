@@ -17,7 +17,7 @@ sh ~/.fehbg &
 #syndaemon -d -k -i 3.0 &
 
 # Turn off the touchpad
-synclient TouchpadOff=1
+#synclient TouchpadOff=1
 
 # Turn on numlock
 numlockx
