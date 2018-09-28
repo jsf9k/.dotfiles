@@ -75,10 +75,10 @@
 (require 'cmake-mode)
 
 ;; Use lilypond mode
-(require 'lilypond-mode)
+;;(require 'lilypond-mode)
 
-;; Use Opera as the generic URL browser
-(setq browse-url-generic-program "opera")
+;; Use chromium as the generic URL browser
+(setq browse-url-generic-program "chromium")
 
 ;; Ratpoison
 (require 'ratpoison)
@@ -174,7 +174,10 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default))))
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+ '(package-selected-packages
+   (quote
+    (pdf-tools terraform-mode markdown-mode ssh-config-mode angular-mode ansible ansible-doc ansible-vault apache-mode arduino-mode bash-completion csv-mode dockerfile-mode gitattributes-mode gitconfig-mode gnuplot-mode go-mode groovy-mode handlebars-mode ini-mode json-mode jsx-mode mustache-mode nginx-mode npm-mode python-mode solarized-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -48,6 +48,7 @@ export PATH=$PATH:$HOME/Android/Sdk/platform-tools:$HOME/android-studio/bin
 # managers
 export _JAVA_AWT_WM_NONREPARENTING=1
 export JAVA_HOME=/usr/lib/jvm/default
+
 ###-begin-npm-completion-###
 #
 # npm command completion script
@@ -105,3 +106,8 @@ elif type compctl &>/dev/null; then
   compctl -K _npm_completion npm
 fi
 ###-end-npm-completion-###
+
+# Load local configuration
+if [ -f ~/.bashrc_local ]
+   source ~/.bashrc_local
+fi
