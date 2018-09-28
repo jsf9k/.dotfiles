@@ -1,10 +1,11 @@
-[push]
-	default = simple
-[http]
-	sslVerify = true
-[rebase]
-	autosquash = true
-[branch]
-	autosetuprebase = always
-[color]
-	ui = auto
+[user]
+	signingkey = 285B4A02F4305C09
+	name = Jeremy Frasier
+	email = jeremy.frasier@beta.dhs.gov
+[commit]
+	gpgSign = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
