@@ -1,5 +1,5 @@
-# Setup my monitors
-/home/sfrasier/bin/setup_monitors
+# Apply keyboard modifications
+[ -f ~/.xmodmaprc ] && xmodmap ~/.xmodmaprc
 
 # Merge in my X resources
 [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
