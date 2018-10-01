@@ -12,11 +12,9 @@ set fwcolor #657b83
 
 # Commonly used apps
 bind a exec sh /usr/share/ratpoison/ratdate.sh
-bind b exec uzbl-tabbed
-bind B exec chromium
+bind b exec chromium
 bind c exec ssh-agent urxvt
 bind e exec ssh-agent emacs
-bind m exec thunderbird
 bind x exec xlock
 
 # Audio controls
@@ -25,9 +23,4 @@ definekey top XF86AudioLowerVolume exec amixer -q set Master 5- unmute; amixer -
 definekey top XF86AudioMute exec amixer -q set Master toggle; amixer -q set "Headphone (null)" toggle; ratpoison -c "echo [ MUTE ]"
 bind greater exec amixer -q set Master 5+ unmute; amixer -q set "Headphone (null)" 5+ unmute; ratpoison -c "echo Volume +5"
 bind less exec amixer -q set Master 5- unmute; amixer -q set "Headphone (null)" 5- unmute; ratpoison -c "echo Volume -5"
-bind l exec amixer -q set Master toggle; amixer -q set "Headphone (null)" toggle; ratpoison -c "echo [ MUTE ]"
-
-# Music controls
-#definekey top XF86AudioPlay exec urxvt -e emacsclient -e "(emms-pause)"; ratpoison -c "echo toggle EMMS"
-#definekey top XF86AudioPrev exec urxvt -e emacsclient -e "(emms-previous)"; ratpoison -c "echo EMMS << Previous song"
-#definekey top XF86AudioNext exec urxvt -e emacsclient -e "(emms-next)"; ratpoison -c "echo EMMS >> Next song"
+bind m exec amixer -q set Master toggle; amixer -q set "Headphone (null)" toggle; ratpoison -c "echo [ MUTE ]"
