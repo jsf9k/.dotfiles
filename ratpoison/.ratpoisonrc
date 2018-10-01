@@ -13,8 +13,8 @@ set fwcolor #657b83
 # Commonly used apps
 bind a exec sh /usr/share/ratpoison/ratdate.sh
 bind b exec chromium
-bind c exec ssh-agent urxvt
-bind e exec ssh-agent emacs
+bind c exec urxvt
+bind e exec emacs
 bind x exec xlock
 
 # Audio controls

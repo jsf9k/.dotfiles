@@ -19,8 +19,8 @@ sh ~/.fehbg &
 # Turn off the touchpad
 #synclient TouchpadOff=1
 
-# Turn on numlock
-numlockx
+# Start ssh-agent
+eval $(ssh-agent)
 
 # Start ratpoison
 exec ratpoison
