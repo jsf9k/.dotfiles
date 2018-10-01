@@ -113,6 +113,16 @@
   :config
   (load-theme 'solarized-dark t))
 
+;; Enable IDO mode
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+(use-package ido-vertical-mode
+  :ensure t
+  :config
+  (setq ido-vertical-define-keys 'C-n-and-C-p-only))
+(ido-vertical-mode 1)
+
 ;; Use cscope
 (require 'xcscope)
 
@@ -132,9 +142,6 @@
 (require 'ratpoison)
 
 ;; Enable IDO mode
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
 
 ;; enable subword mode for C++
 (add-hook 'c++-mode-hook
