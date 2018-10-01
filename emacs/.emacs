@@ -9,11 +9,11 @@
 ;; Add our lisp directory to the load path
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
-;;; Disable loading of "default.el" at startup
+;; Disable loading of "default.el" at startup
 (setq inhibit-default-init t)
 
 ;; Turn off the blinking cursor
-(blink-cursor-mode 0)
+(blink-cursor-mode nil)
 
 ;; turn on font-lock mode
 (when (fboundp 'global-font-lock-mode)
@@ -35,10 +35,10 @@
 ;; Do not display a splash screen on startup
 (setq inhibit-splash-screen t)
 
-;; Show column-number in the mode line
+;; Show column number in the mode line
 (column-number-mode t)
 
-;; Show column-number in the mode line
+;; Show line number in the mode line
 (line-number-mode t)
 
 ;; Use spaces instead of tabs for indent.
@@ -61,9 +61,6 @@
 
 ;; Use cscope
 (require 'xcscope)
-
-;; Use psvn
-;;(require 'psvn)
 
 ;; Try to preserve the window configuration when doing things like diff or ediff
 (setq svn-status-preserve-window-configuration t)
