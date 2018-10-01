@@ -10,7 +10,7 @@ export PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_C
 export HISTCONTROL=ignoreboth:erasedups
 
 # Set basic program defaults
-export EDITOR=emacs
+export EDITOR=emacsclient
 export BROWSER=chromium
 
 # Nice colors for ls output
