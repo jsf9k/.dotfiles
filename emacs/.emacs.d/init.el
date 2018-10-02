@@ -98,9 +98,8 @@
 ;; (set-terminal-coding-system 'utf-8)
 ;; (set-keyboard-coding-system 'utf-8)
 
-;; Turn on semantic-mode and semantic-decoration-mode
-(semantic-mode 1)
-(global-semantic-decoration-mode t)
+;; Use chromium as the generic URL browser
+(setq browse-url-generic-program "chromium")
 
 ;; Install use-package if necessary, then set it up
 (unless (package-installed-p 'use-package)
@@ -114,89 +113,128 @@
   (load-theme 'solarized-dark t))
 
 ;; Enable IDO mode
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
+(require 'ido)
+(use-package ido
+  :ensure t
+  :init
+  (setq ido-enable-flex-matching t)
+  (setq ido-everywhere t)
+  :config
+  (ido-mode 1))
 (use-package ido-vertical-mode
   :ensure t
   :config
-  (setq ido-vertical-define-keys 'C-n-and-C-p-only))
-(ido-vertical-mode 1)
+  (setq ido-vertical-define-keys 'C-n-and-C-p-only)
+  (ido-vertical-mode 1))
 
-;; Use cscope
-(require 'xcscope)
+;; Turn on semantic-mode and semantic-decoration-mode
+(require 'semantic)
+(use-package semantic
+  :ensure t
+  :config
+  (semantic-mode 1)
+  (global-semantic-decoration-mode t))
 
-;; Use tramp
+;; Tramp
 (require 'tramp)
-
-;; Use cmake mode
-(require 'cmake-mode)
-
-;; Use lilypond mode
-;;(require 'lilypond-mode)
-
-;; Use chromium as the generic URL browser
-(setq browse-url-generic-program "chromium")
 
 ;; Ratpoison
 (require 'ratpoison)
 
-;; Enable IDO mode
+;; magit
+(use-package magit
+  :ensure t)
 
-;; enable subword mode for C++
-(add-hook 'c++-mode-hook
-          '(lambda ()
-             (subword-mode)))
+;; projectile
+(use-package projectile
+  :ensure t
+  :init
+  (setq projectile-completion-system 'ido)
+  :config
+  (projectile-mode 1))
 
-;; enable subword mode for C
-(add-hook 'c-mode-hook
-          '(lambda ()
-             (subword-mode)))
+;; rainbow-mode
+(use-package rainbow-mode
+  :ensure t
+  :hook (prog-mode text-mode))
 
-;; enable subword mode for python
-(add-hook 'python-mode-hook
-          '(lambda ()
-             (subword-mode)))
+;; subword-mode
+(require 'subword)
+(use-package subword
+  :hook (prog-mode . subword-mode))
 
-;; enable subword mode for lisp
-(add-hook 'lisp-mode-hook
-          '(lambda ()
-             (subword-mode)))
+;; flyspell
+(require 'flyspell)
+(use-package flyspell
+  :hook ((prog-mode . flyspell-prog-mode)
+         (text-mode . flyspell-mode)))
 
-;; enable subword mode for java
-(add-hook 'java-mode-hook
-          '(lambda ()
-             (subword-mode)))
+;; flyspell-correct-ido
+(use-package flyspell-correct
+  :ensure t
+  :config
+  (require 'flyspell-correct-ido))
 
-;; enable subword mode for scala
-(add-hook 'scala-mode-hook
-          '(lambda ()
-             (subword-mode)))
+;; yaml-mode
+(use-package yaml-mode
+  :ensure t)
 
-;; enable subword mode for groovy
-(add-hook 'groovy-mode-hook
-          '(lambda ()
-             (subword-mode)))
+;; markdown-mode
+(use-package markdown-mode
+  :ensure t)
 
-;; enable subword mode for CMake
-(add-hook 'cmake-mode-hook
-          '(lambda ()
-             (subword-mode)))
+;; company-mode
+(use-package company
+  :ensure t
+  :config
+  (global-company-mode))
 
-;; enable subword mode for javascript
-(add-hook 'js-mode-hook
-          '(lambda ()
-             (subword-mode)))
+;; flycheck-mode
+(use-package flycheck
+  :ensure t
+  :hook (after-init . global-flycheck-mode))
 
-;; enable flyspell mode for latex
-(add-hook 'latex-mode-hook
-          '(lambda ()
-             (flyspell-mode)))
+;; undo-tree
+(use-package undo-tree
+  :ensure t)
 
-;; enable visual word wrap mode for latex
-(add-hook 'latex-mode-hook
+;; electric-pair-mode
+(electric-pair-mode)
+
+;; anaconda
+(use-package anaconda-mode
+  :hook python-mode)
+
+;; company plugins
+(use-package company-anaconda
+  :ensure t)
+(use-package company-ansible
+  :ensure t)
+(use-package company-math
+  :ensure t)
+(use-package company-restclient
+  :ensure t)
+(use-package company-terraform
+  :ensure t)
+(use-package company-web
+  :ensure t)
+
+;; restclient
+(use-package restclient
+  :ensure t)
+
+;; ansible
+(use-package ansible
+  :ensure t)
+
+;; terraform-mode
+(use-package terraform-mode
+  :ensure t)
+
+;; Enable visual word wrap mode for text modes
+(add-hook 'text-mode-hook
           '(lambda ()
-             (visual-line-mode)))
+             (visual-line-mode 1)))
 
 ;; Add Arduino ino files to c++-mode
 (add-to-list 'auto-mode-alist '("\\.ino\\'" . c++-mode))
