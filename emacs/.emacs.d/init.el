@@ -231,6 +231,26 @@
 (use-package terraform-mode
   :ensure t)
 
+;; yasnippet
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode 1))
+
+;; smex
+(use-package smex
+  :ensure t
+  :bind (("M-x" . smex)
+         ("M-X" . smex-major-mode-commands)
+         ("C-c C-c M-x" . execute-extended-command))
+  :config
+  (smex-initialize))
+
+;; ace-window
+(use-package ace-window
+  :ensure t
+  :bind ("M-o" . ace-window))
+
 ;; Enable visual word wrap mode for text modes
 (add-hook 'text-mode-hook
           '(lambda ()
