@@ -113,7 +113,6 @@
   (load-theme 'solarized-dark t))
 
 ;; Enable IDO mode
-(require 'ido)
 (use-package ido
   :ensure t
   :init
@@ -128,7 +127,6 @@
   (ido-vertical-mode 1))
 
 ;; Turn on semantic-mode and semantic-decoration-mode
-(require 'semantic)
 (use-package semantic
   :ensure t
   :config
@@ -136,10 +134,13 @@
   (global-semantic-decoration-mode t))
 
 ;; Tramp
-(require 'tramp)
+(use-package tramp
+  :ensure t)
 
 ;; Ratpoison
 (require 'ratpoison)
+(use-package ratpoison
+  :ensure t)
 
 ;; magit
 (use-package magit
@@ -148,6 +149,8 @@
 ;; projectile
 (use-package projectile
   :ensure t
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
   :init
   (setq projectile-completion-system 'ido)
   :config
@@ -159,12 +162,10 @@
   :hook (prog-mode text-mode))
 
 ;; subword-mode
-(require 'subword)
 (use-package subword
   :hook (prog-mode . subword-mode))
 
 ;; flyspell
-(require 'flyspell)
 (use-package flyspell
   :hook ((prog-mode . flyspell-prog-mode)
          (text-mode . flyspell-mode)))
@@ -187,7 +188,8 @@
 (use-package company
   :ensure t
   :config
-  (global-company-mode))
+  (global-company-mode)
+  (add-to-list 'company-backends 'company-capf))
 
 ;; flycheck-mode
 (use-package flycheck
@@ -196,28 +198,17 @@
 
 ;; undo-tree
 (use-package undo-tree
-  :ensure t)
+  :ensure t
+  :hook ((prog-mode . undo-tree-mode)
+         (text-mode . undo-tree-mode)))
 
 ;; electric-pair-mode
 (electric-pair-mode)
 
 ;; anaconda
 (use-package anaconda-mode
-  :hook python-mode)
-
-;; company plugins
-(use-package company-anaconda
-  :ensure t)
-(use-package company-ansible
-  :ensure t)
-(use-package company-math
-  :ensure t)
-(use-package company-restclient
-  :ensure t)
-(use-package company-terraform
-  :ensure t)
-(use-package company-web
-  :ensure t)
+  :hook ((python-mode)
+         (python-mode . anaconda-eldoc-mode)))
 
 ;; restclient
 (use-package restclient
@@ -230,6 +221,32 @@
 ;; terraform-mode
 (use-package terraform-mode
   :ensure t)
+
+;; company plugins
+(use-package company-anaconda
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-anaconda))
+(use-package company-ansible
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-ansible))
+(use-package company-math
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-math))
+(use-package company-restclient
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-restclient))
+(use-package company-terraform
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-terraform))
+(use-package company-web
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-web))
 
 ;; yasnippet
 (use-package yasnippet
@@ -251,10 +268,19 @@
   :ensure t
   :bind ("M-o" . ace-window))
 
+;; pdf-tools
+(use-package pdf-tools
+  :ensure t
+  :magic ("%PDF" . pdf-view-mode)
+  :config
+  (pdf-tools-install))
+
 ;; Enable visual word wrap mode for text modes
 (add-hook 'text-mode-hook
           '(lambda ()
              (visual-line-mode 1)))
+
+(setq enable-recursive-minibuffers t)
 
 ;; Add Arduino ino files to c++-mode
 (add-to-list 'auto-mode-alist '("\\.ino\\'" . c++-mode))
