@@ -276,6 +276,9 @@
   :config
   (pdf-tools-install))
 
+;; winner mode
+(winner-mode 1)
+
 ;; Enable visual word wrap mode for text modes
 (add-hook 'text-mode-hook
           '(lambda ()
