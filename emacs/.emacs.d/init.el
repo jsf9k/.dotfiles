@@ -138,14 +138,17 @@
   :ensure t)
 
 ;; Ratpoison
-(require 'ratpoison)
 (use-package ratpoison
-  :ensure t)
+  :load-path "/usr/share/emacs/site-lisp")
 
 ;; magit
 (use-package magit
   :ensure t
   :bind ("C-x g" . magit-status))
+
+;; git-timemachine
+(use-package git-timemachine
+  :ensure t)
 
 ;; projectile
 (use-package projectile
@@ -254,6 +257,8 @@
   :ensure t
   :config
   (yas-global-mode 1))
+(use-package yasnippet-snippets
+  :ensure t)
 
 ;; smex
 (use-package smex
