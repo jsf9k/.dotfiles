@@ -41,6 +41,10 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
+;; Display the time and date
+(setq display-time-format "%I:%M%p %a %b %d")
+(display-time-mode 1)
+
 ;; Turn off annoyances: the blinking cursor, the bell, the init
 ;; screen, and the splash screen
 (blink-cursor-mode nil)
@@ -111,6 +115,8 @@
   :ensure t
   :config
   (load-theme 'solarized-dark t))
+
+(require 'dired-x)
 
 ;; Enable IDO mode
 (use-package ido
@@ -280,6 +286,10 @@
   :magic ("%PDF" . pdf-view-mode)
   :config
   (pdf-tools-install))
+
+;; mustache-mode
+(use-package mustache-mode
+  :ensure t)
 
 ;; winner mode
 (winner-mode 1)
