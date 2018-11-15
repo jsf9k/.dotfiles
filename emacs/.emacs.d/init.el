@@ -291,6 +291,12 @@
 (use-package mustache-mode
   :ensure t)
 
+;; docker-compose-mode and dockerfile-mode
+(use-package docker-compose-mode
+  :ensure t)
+(use-package dockerfile-mode
+  :ensure t)
+
 ;; winner mode
 (winner-mode 1)
 
