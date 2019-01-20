@@ -1,7 +1,7 @@
 [user]
 	signingkey = 285B4A02F4305C09
 	name = Jeremy Frasier
-	email = jeremy.frasier@beta.dhs.gov
+	email = jeremy.frasier@trio.dhs.gov
 [commit]
 	gpgSign = true
 [filter "lfs"]
