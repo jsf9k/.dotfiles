@@ -14,7 +14,7 @@ export EDITOR=emacsclient
 export BROWSER=chromium
 
 # Nice colors for ls output
-eval $(dircolors -b)
+eval "$(dircolors -b)"
 alias ls='ls --color=auto'
 
 # Nice colors for grep output
@@ -23,13 +23,15 @@ alias grep='grep --color=auto'
 # Nicely formatted less output
 export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 export LESS='-R '
-export LESS_TERMCAP_me=$(printf '\e[0m')
-export LESS_TERMCAP_se=$(printf '\e[0m')
-export LESS_TERMCAP_ue=$(printf '\e[0m')
-export LESS_TERMCAP_mb=$(printf '\e[1;32m')
-export LESS_TERMCAP_md=$(printf '\e[1;34m')
-export LESS_TERMCAP_us=$(printf '\e[1;32m')
-export LESS_TERMCAP_so=$(printf '\e[1;44;1m')
+LESS_TERMCAP_me=$(printf '\e[0m')
+LESS_TERMCAP_se=$(printf '\e[0m')
+LESS_TERMCAP_ue=$(printf '\e[0m')
+LESS_TERMCAP_mb=$(printf '\e[1;32m')
+LESS_TERMCAP_md=$(printf '\e[1;34m')
+LESS_TERMCAP_us=$(printf '\e[1;32m')
+LESS_TERMCAP_so=$(printf '\e[1;44;1m')
+export LESS_TERMCAP_se LESS_TERMCAP_me LESS_TERMCAP_ue LESS_TERMCAP_mb \
+       LESS_TERMCAP_md LESS_TERMCAP_us LESS_TERMCAP_so
 
 # Colored man pages
 man() {
@@ -59,6 +61,14 @@ if [ -d ~/.bashrc.d ]
 then
     for f in ~/.bashrc.d/*
     do
-        source $f
+        # shellcheck disable=SC1090
+        source "$f"
     done
 fi
+
+# Add ruby gems to PATH
+export PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
+
+# Add rvm to PATH for scripting. Make sure this is the last PATH
+# variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
