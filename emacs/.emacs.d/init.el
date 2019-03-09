@@ -319,4 +319,6 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
+(set-frame-font "Inconsolata 12" nil t)
+
 (server-start)
