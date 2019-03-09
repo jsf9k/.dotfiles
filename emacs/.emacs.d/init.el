@@ -15,7 +15,7 @@
 
 ;; Name and email
 (setq user-full-name "Jeremy Frasier"
-      user-mail-address "jeremy.frasier@beta.dhs.gov")
+      user-mail-address "jeremy.frasier@trio.dhs.gov")
 
 ;; Always load newest byte code
 (setq load-prefer-newer t)
@@ -318,5 +318,8 @@
 
 (when (file-exists-p custom-file)
   (load custom-file))
+
+;; Set the font to use
+(set-frame-font "Source Code Pro 12" nil t)
 
 (server-start)
