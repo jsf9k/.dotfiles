@@ -13,9 +13,8 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
-;; Name and email
-(setq user-full-name "Jeremy Frasier"
-      user-mail-address "jeremy.frasier@trio.dhs.gov")
+;; Identity information (name and email)
+(load "~/.emacs.d/identity")
 
 ;; Always load newest byte code
 (setq load-prefer-newer t)
