@@ -51,27 +51,6 @@ PS1='\[\e[0;32m\]\u@\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] \[\
 # Add local bin directory to the path
 export PATH=$PATH:$HOME/bin
 
-# Workaround for OpenJDK when dealing with non-parenting window
-# managers (such as ratpoison)
-export _JAVA_AWT_WM_NONREPARENTING=1
-export JAVA_HOME=/usr/lib/jvm/default
-
-# Add pyenv to PATH
-export PATH="$PATH:$HOME/.pyenv/bin"
-
-# Add ruby gems to PATH
-export PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
-
-# Add rvm to PATH for scripting. Make sure this is the last PATH
-# variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# pyenv stuff
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-complete -C /usr/bin/terraform terraform
-
 # Load other files
 if [ -d ~/.bashrc.d ]
 then
