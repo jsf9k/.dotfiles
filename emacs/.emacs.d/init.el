@@ -14,7 +14,7 @@
   (package-refresh-contents))
 
 ;; Identity information (name and email)
-(load "~/.emacs.d/identity")
+(load "~/.emacs_identity")
 
 ;; Always load newest byte code
 (setq load-prefer-newer t)
