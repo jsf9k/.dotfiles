@@ -1,4 +1,0 @@
-# Workaround for OpenJDK when dealing with non-parenting window
-# managers (such as ratpoison)
-export _JAVA_AWT_WM_NONREPARENTING=1
-export JAVA_HOME=/usr/lib/jvm/default
