@@ -1,0 +1,6 @@
+# Add ruby gems to PATH
+export PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
+
+# Add rvm to PATH for scripting. Make sure this is the last PATH
+# variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
