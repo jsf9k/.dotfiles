@@ -1,6 +1,3 @@
-# Add pyenv to PATH
-export PATH="$PATH:$HOME/.pyenv/bin"
-
-# pyenv setup
+# Load pyenv automatically
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
