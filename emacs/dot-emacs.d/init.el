@@ -210,6 +210,10 @@
   :ensure t
   :hook ((prog-mode . undo-tree-mode)
          (text-mode . undo-tree-mode)))
+;; Prevent undo tree files from polluting your git repo
+(setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
+;; Or, just don't persist undo history at all
+;; (setq undo-tree-auto-save-history nil)
 
 ;; electric-pair-mode
 (electric-pair-mode)
