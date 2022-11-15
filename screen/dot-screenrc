@@ -6,3 +6,6 @@ shell -/bin/bash
 
 # Allow lots of colors
 term xterm-256color
+
+# Default to a large scrollback buffer
+defscrollback 100000
