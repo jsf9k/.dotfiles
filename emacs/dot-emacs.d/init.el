@@ -319,6 +319,10 @@
           '(lambda ()
              (visual-line-mode 1)))
 
+;; lorem-ipsum
+(use-package lorem-ipsum
+  :ensure t)
+
 (setq enable-recursive-minibuffers t)
 
 ;; Add Arduino ino files to c++-mode
