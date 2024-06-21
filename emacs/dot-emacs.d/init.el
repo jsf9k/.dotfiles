@@ -155,14 +155,14 @@
   :ensure t)
 
 ;; projectile
-(use-package projectile
-  :ensure t
-  :bind-keymap
-  ("C-c p" . projectile-command-map)
-  :init
-  (setq projectile-completion-system 'ido)
-  :config
-  (projectile-mode 1))
+;; (use-package projectile
+;;   :ensure t
+;;   :bind-keymap
+;;   ("C-c p" . projectile-command-map)
+;;   :init
+;;   (setq projectile-completion-system 'ido)
+;;   :config
+;;   (projectile-mode 1))
 
 ;; rainbow-mode
 (use-package rainbow-mode
