@@ -173,17 +173,6 @@
 (use-package subword
   :hook (prog-mode . subword-mode))
 
-;; flyspell
-(use-package flyspell
-  :hook ((prog-mode . flyspell-prog-mode)
-         (text-mode . flyspell-mode)))
-
-;; flyspell-correct-ido
-(use-package flyspell-correct
-  :ensure t
-  :config
-  (require 'flyspell-correct-ido))
-
 ;; yaml-mode
 (use-package yaml-mode
   :ensure t)
@@ -254,8 +243,6 @@
          ("M-s" . consult-history)                 ;; orig. next-matching-history-element
          ("M-r" . consult-history))                ;; orig. previous-matching-history-element
   )
-(use-package consult-flyspell
-  :ensure t)
 (use-package consult-flycheck
   :ensure t)
 (use-package consult-tex
