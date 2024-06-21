@@ -404,6 +404,10 @@
 (use-package lorem-ipsum
   :ensure t)
 
+;; multiple-cursors
+(use-package multiple-cursors
+  :ensure t)
+
 (setq enable-recursive-minibuffers t)
 
 ;; Add Arduino ino files to c++-mode
