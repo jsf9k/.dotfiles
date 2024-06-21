@@ -300,6 +300,10 @@
 (use-package dockerfile-mode
   :ensure t)
 
+;; Switch to sudo on an open file
+(use-package sudo-edit
+  :ensure t)
+
 ;; Major mode for SystemD unit files
 (use-package systemd
   :ensure t)
