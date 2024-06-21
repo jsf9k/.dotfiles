@@ -295,6 +295,14 @@
 (use-package embark-consult
   :ensure t)
 
+;; jinx spellchecker
+(use-package jinx
+  :ensure t
+  ;; Enable jinx globally
+  :hook (emacs-startup . global-jinx-mode)
+  :bind (("M-$" . jinx-correct)
+         ("C-M-$" . jinx-languages)))
+
 ;; flycheck-mode
 (use-package flycheck
   :ensure t
