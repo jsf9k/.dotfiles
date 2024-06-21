@@ -325,6 +325,9 @@
 ;; ansible
 (use-package ansible
   :ensure t)
+(use-package ansible-doc
+  :ensure t)
+(add-hook 'yaml-mode-hook #'ansible-doc-mode)
 
 ;; terraform-mode
 (use-package terraform-mode
