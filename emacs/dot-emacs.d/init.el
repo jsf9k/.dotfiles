@@ -133,6 +133,18 @@
 (use-package ratpoison
   :load-path "/usr/share/emacs/site-lisp")
 
+(use-package avy
+  :ensure t
+  :bind (("M-j" . avy-goto-char-timer))
+  ;; :bind (("s-." . avy-goto-word-or-subword-1)
+  ;;        ("s-," . avy-goto-char)
+  ;;        ("C-c ." . avy-goto-word-or-subword-1)
+  ;;        ("C-c ," . avy-goto-char)
+  ;;        ("M-g f" . avy-goto-line)
+  ;;        ("M-g w" . avy-goto-word-or-subword-1))
+  :config
+  (setq avy-background t))
+
 ;; magit
 (use-package magit
   :ensure t
