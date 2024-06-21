@@ -265,7 +265,8 @@
 (use-package corfu
   :ensure t
   :init
-  (global-corfu-mode))
+  (global-corfu-mode)
+  (corfu-popupinfo-mode))
 (use-package cape
   :ensure t)
 ;; Use Company backends as Capfs.
