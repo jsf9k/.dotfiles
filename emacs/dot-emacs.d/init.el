@@ -235,48 +235,35 @@
 (use-package terraform-mode
   :ensure t)
 
+;; (use-package company
+;;   :ensure t
+;;   :config
+;;   (add-to-list 'company-backends 'capf))
 ;; company plugins
-(use-package company-anaconda
-  :ensure t
-  :config
-  (add-to-list 'company-backends 'company-anaconda))
-(use-package company-ansible
-  :ensure t
-  :config
-  (add-to-list 'company-backends 'company-ansible))
-(use-package company-math
-  :ensure t
-  :config
-  (add-to-list 'company-backends 'company-math))
-(use-package company-restclient
-  :ensure t
-  :config
-  (add-to-list 'company-backends 'company-restclient))
-(use-package company-terraform
-  :ensure t
-  :config
-  (add-to-list 'company-backends 'company-terraform))
-(use-package company-web
-  :ensure t
-  :config
-  (add-to-list 'company-backends 'company-web))
-
-;; yasnippet
-(use-package yasnippet
-  :ensure t
-  :config
-  (yas-global-mode 1))
-(use-package yasnippet-snippets
-  :ensure t)
-
-;; smex
-(use-package smex
-  :ensure t
-  :bind (("M-x" . smex)
-         ("M-X" . smex-major-mode-commands)
-         ("C-c C-c M-x" . execute-extended-command))
-  :config
-  (smex-initialize))
+;; (use-package company-anaconda
+;;   :ensure t
+;;   :config
+;;   (add-to-list 'company-backends 'company-anaconda))
+;; (use-package company-ansible
+;;   :ensure t)
+;;  :config
+;;  (add-to-list 'company-backends 'company-ansible))
+;; (use-package company-math
+;;   :ensure t
+;;   :config
+;;   (add-to-list 'company-backends 'company-math))
+;; (use-package company-restclient
+;;   :ensure t
+;;   :config
+;;   (add-to-list 'company-backends 'company-restclient))
+;; (use-package company-terraform
+;;   :ensure t)
+;;  :config
+;;  (add-to-list 'company-backends 'company-terraform))
+;; (use-package company-web
+;;   :ensure t
+;;   :config
+;;   (add-to-list 'company-backends 'company-web))
 
 ;; ace-window
 (use-package ace-window
