@@ -270,10 +270,10 @@
 (use-package cape
   :ensure t)
 ;; Use Company backends as Capfs.
-(use-package company-ansible
-  :ensure t)
-(use-package company-terraform
-  :ensure t)
+;; (use-package company-ansible
+;;   :ensure t)
+;; (use-package company-terraform
+;;   :ensure t)
 ;; (setq-local completion-at-point-functions
 ;;   (mapcar #'cape-company-to-capf
 ;;     (list #'company-ansible #'company-terraform)))
@@ -329,10 +329,6 @@
 (use-package terraform-mode
   :ensure t)
 
-;; (use-package company
-;;   :ensure t
-;;   :config
-;;   (add-to-list 'company-backends 'capf))
 ;; company plugins
 ;; (use-package company-anaconda
 ;;   :ensure t
