@@ -118,20 +118,6 @@
 
 (require 'dired-x)
 
-;; Enable IDO mode
-(use-package ido
-  :ensure t
-  :init
-  (setq ido-enable-flex-matching t)
-  (setq ido-everywhere t)
-  :config
-  (ido-mode 1))
-(use-package ido-vertical-mode
-  :ensure t
-  :config
-  (setq ido-vertical-define-keys 'C-n-and-C-p-only)
-  (ido-vertical-mode 1))
-
 ;; Turn on semantic-mode and semantic-decoration-mode
 (use-package semantic
   :ensure t
