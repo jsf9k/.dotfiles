@@ -135,7 +135,7 @@
 
 (use-package avy
   :ensure t
-  :bind (("M-j" . avy-goto-char-timer))
+  :bind (("C-j" . avy-goto-char-timer))
   ;; :bind (("s-." . avy-goto-word-or-subword-1)
   ;;        ("s-," . avy-goto-char)
   ;;        ("C-c ." . avy-goto-word-or-subword-1)
@@ -279,7 +279,7 @@
 ;;     (list #'company-ansible #'company-terraform)))
 (use-package embark
   :ensure t
-  :bind (("M-." . embark-act)))
+  :bind (("C-." . embark-act)))
 (use-package embark-consult
   :ensure t)
 
