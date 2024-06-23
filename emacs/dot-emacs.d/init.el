@@ -155,14 +155,26 @@
   :ensure t)
 
 ;; projectile
-;; (use-package projectile
-;;   :ensure t
-;;   :bind-keymap
-;;   ("C-c p" . projectile-command-map)
-;;   :init
-;;   (setq projectile-completion-system 'ido)
-;;   :config
-;;   (projectile-mode 1))
+(use-package projectile
+  :ensure t
+  :init
+  (setq projectile-project-search-path '("~/cisagov/" "~/jsf9k/"))
+  :config
+  (define-key projectile-mode-map (kbd "C-c C-p") 'projectile-command-map)
+  (global-set-key (kbd "C-c p") 'projectile-command-map)
+  (projectile-mode +1))
+
+;; pyenv-mode
+(use-package pyenv-mode
+  :ensure t)
+;; Automatically select pyenv based on project name
+(defun projectile-pyenv-mode-set ()
+  "Set pyenv version matching project name."
+  (let ((project (projectile-project-name)))
+    (if (member project (pyenv-mode-versions))
+        (pyenv-mode-set project)
+      (pyenv-mode-unset))))
+(add-hook 'projectile-after-switch-project-hook 'projectile-pyenv-mode-set)
 
 ;; rainbow-mode
 (use-package rainbow-mode
