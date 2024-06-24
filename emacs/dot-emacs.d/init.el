@@ -437,4 +437,7 @@
 
 (set-frame-font "Sauce Code Pro Nerd Font 11" nil t)
 
+(split-window-right)
+(vterm)
+
 (server-start)
