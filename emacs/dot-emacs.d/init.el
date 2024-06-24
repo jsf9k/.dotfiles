@@ -197,7 +197,10 @@
 (use-package vertico
   :ensure t
   :init
-  (vertico-mode))
+  (vertico-mode)
+  ;; Optionally enable cycling for `vertico-next' and `vertico-previous'.
+  (setq vertico-cycle t)
+  )
 (use-package consult
   :ensure t
   ;; Replace bindings. Lazily loaded due by `use-package'.
