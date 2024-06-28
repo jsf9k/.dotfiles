@@ -343,7 +343,19 @@
 ;; flycheck-mode
 (use-package flycheck
   :ensure t
-  :hook (after-init . global-flycheck-mode))
+  :defer t
+  :hook ((after-init . global-flycheck-mode)
+         (LilyPond-mode . flycheck-mode)
+         (python-mode . flycheck-mode)
+         (yaml-mode . flycheck-mode)))
+(use-package flycheck-lilypond
+  :ensure t)
+(use-package flycheck-mypy
+  :ensure t)
+(use-package flycheck-pyflakes
+  :ensure t)
+(use-package flycheck-yamllint
+  :ensure t)
 
 ;; undo-tree
 (use-package undo-tree
