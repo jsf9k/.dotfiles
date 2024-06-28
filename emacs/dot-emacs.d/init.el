@@ -145,10 +145,13 @@
   :config
   (setq avy-background t))
 
-;; magit
+;; magit and forge
 (use-package magit
   :ensure t
   :bind ("C-x g" . magit-status))
+(use-package forge
+  :ensure t
+  :after magit)
 
 ;; git-timemachine
 (use-package git-timemachine
