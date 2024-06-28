@@ -193,6 +193,12 @@
 (use-package markdown-mode
   :ensure t)
 
+;; which-key
+(use-package which-key
+  :ensure t
+  :init
+  (which-key-mode))
+
 ;; minad stack
 (use-package vertico
   :ensure t
