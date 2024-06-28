@@ -361,6 +361,10 @@
   :hook ((python-mode)
          (python-mode . anaconda-eldoc-mode)))
 
+;; blacken
+(use-package blacken
+  :ensure t)
+
 ;; restclient
 (use-package restclient
   :ensure t)
