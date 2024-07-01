@@ -36,7 +36,8 @@ environment.  Thus I run into these sorts of problems:
 
 The solution is to parse the pre-commit configuration file,
 identify any Python-based linters that I would like to install
-locally, and install those dependencies via pip."
+locally, and install those dependencies via pip.  That is
+precisely what this function does."
 (let (
        ;; This is the `repos' section of the pre-commit configuration
        ;; file, parsed from YML into an elisp data structure.
