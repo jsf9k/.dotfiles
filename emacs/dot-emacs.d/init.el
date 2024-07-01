@@ -178,7 +178,7 @@
     (if (member project (pyenv-mode-versions))
         (progn
           (pyenv-mode-set project)
-          (jsf9k/install-pre-commit-dependencies))
+          (jsf9k/projectile-install-pre-commit-dependencies))
       (pyenv-mode-unset))))
 (add-hook 'projectile-after-switch-project-hook 'projectile-pyenv-mode-set)
 

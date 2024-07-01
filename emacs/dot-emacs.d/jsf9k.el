@@ -95,8 +95,10 @@ precisely what this function does."
      repos)
 
     ;; Use pip to install the dependencies gleaned from the pre-commit
-    ;; config file
-    (async-shell-command (concat "pip install " (mapconcat 'identity pip_pkgs " ")))))
+    ;; config file, remembering to shell-quote if necessary.
+    (async-shell-command (concat "pip install "
+                                 (mapconcat 'shell-quote-argument
+                                            pip_pkgs " ")))))
 
 (provide 'jsf9k)
 ;;; jsf9k.el ends here
