@@ -170,12 +170,15 @@
 ;; pyenv-mode
 (use-package pyenv-mode
   :ensure t)
+(load-file (expand-file-name "jsf9k.el" user-emacs-directory))
 ;; Automatically select pyenv based on project name
 (defun projectile-pyenv-mode-set ()
   "Set pyenv version matching project name."
   (let ((project (projectile-project-name)))
     (if (member project (pyenv-mode-versions))
-        (pyenv-mode-set project)
+        (progn
+          (pyenv-mode-set project)
+          (jsf9k/install-pre-commit-dependencies))
       (pyenv-mode-unset))))
 (add-hook 'projectile-after-switch-project-hook 'projectile-pyenv-mode-set)
 
