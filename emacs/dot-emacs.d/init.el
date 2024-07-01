@@ -348,14 +348,20 @@
   :ensure t
   :defer t
   :hook ((after-init . global-flycheck-mode)
+         (haskell-mode . flycheck-mode)
          (LilyPond-mode . flycheck-mode)
          (python-mode . flycheck-mode)
+         (rust-mode . flycheck-mode)
          (yaml-mode . flycheck-mode)))
+(use-package flycheck-haskell
+  :ensure t)
 (use-package flycheck-lilypond
   :ensure t)
 (use-package flycheck-mypy
   :ensure t)
 (use-package flycheck-pyflakes
+  :ensure t)
+(use-package flycheck-rust
   :ensure t)
 (use-package flycheck-yamllint
   :ensure t)
@@ -393,6 +399,14 @@
 (use-package ansible-doc
   :ensure t)
 (add-hook 'yaml-mode-hook #'ansible-doc-mode)
+
+;; haskell
+(use-package haskell-mode
+  :ensure t)
+
+;; rust
+(use-package rust-mode
+  :ensure t)
 
 ;; terraform-mode
 (use-package terraform-mode
