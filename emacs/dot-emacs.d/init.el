@@ -379,7 +379,9 @@
 ;; electric-pair-mode
 (electric-pair-mode)
 
-;; anaconda
+;; python-mode
+(use-package python-mode
+  :ensure t)
 (use-package anaconda-mode
   :ensure t
   :hook ((python-mode)
