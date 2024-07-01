@@ -5,9 +5,10 @@
 ;;; Code:
 
 (require 'f)
+(require 'projectile)
 (require 'yaml)
 
-(defun jsf9k/install-pre-commit-dependencies ()
+(defun jsf9k/projectile-install-pre-commit-dependencies ()
   "Install pip dependencies from current project's pre-commit config file.
 
 I have a lot of projects that use
@@ -42,7 +43,11 @@ precisely what this function does."
   (let (
         ;; This is the `repos' section of the pre-commit configuration
         ;; file, parsed from YML into an elisp data structure.
-        (repos (gethash 'repos (yaml-parse-string(f-read-text ".pre-commit-config.yaml"))))
+        (repos (gethash
+                'repos
+                (yaml-parse-string(f-read-text (concat
+                                                (projectile-project-root)
+                                                ".pre-commit-config.yaml")))))
         ;; We will populate this hash table with keys equal to the
         ;; pre-commit repository URIs we're interested in and values
         ;; equal to the corresponding pip packages.
