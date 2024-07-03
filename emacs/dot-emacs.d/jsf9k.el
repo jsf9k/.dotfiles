@@ -51,54 +51,54 @@ precisely what this function does."
         ;; We will populate this hash table with keys equal to the
         ;; pre-commit repository URIs we're interested in and values
         ;; equal to the corresponding pip packages.
-        (uri_to_pkg_map (make-hash-table :test 'equal))
+        (uri-to-pkg-map (make-hash-table :test 'equal))
         ;; The pip packages to be installed.  This list will be
         ;; populated as we go.
-        (pip_pkgs (list))
+        (pip-pkgs (list))
         )
-    ;; Populate uri_to_pkg_map
-    (puthash "https://github.com/PyCQA/bandit" "bandit" uri_to_pkg_map)
-    (puthash "https://github.com/psf/black-pre-commit-mirror" "black" uri_to_pkg_map)
-    (puthash "https://github.com/PyCQA/flake8" "flake8" uri_to_pkg_map)
-    (puthash "https://github.com/PyCQA/isort" "isort" uri_to_pkg_map)
-    (puthash "https://github.com/pre-commit/mirrors-mypy" "mypy" uri_to_pkg_map)
-    (puthash "https://github.com/asottile/pyupgrade" "pyupgrade" uri_to_pkg_map)
-    (puthash "https://github.com/adrienverge/yamllint" "yamllint" uri_to_pkg_map)
+    ;; Populate uri-to-pkg-map
+    (puthash "https://github.com/PyCQA/bandit" "bandit" uri-to-pkg-map)
+    (puthash "https://github.com/psf/black-pre-commit-mirror" "black" uri-to-pkg-map)
+    (puthash "https://github.com/PyCQA/flake8" "flake8" uri-to-pkg-map)
+    (puthash "https://github.com/PyCQA/isort" "isort" uri-to-pkg-map)
+    (puthash "https://github.com/pre-commit/mirrors-mypy" "mypy" uri-to-pkg-map)
+    (puthash "https://github.com/asottile/pyupgrade" "pyupgrade" uri-to-pkg-map)
+    (puthash "https://github.com/adrienverge/yamllint" "yamllint" uri-to-pkg-map)
 
     ;; Iterate over each repo specified in the pre-commit config file
     (mapc
      (lambda (repo_from_precommit_config)
-       ;; Iterate over `uri_to_pkg_map'
+       ;; Iterate over `uri-to-pkg-map'
        (maphash
         (lambda (uri pkg)
           ;; Does the URI for this repo match one of the ones in
-          ;; `uri_to_pkg_map'?
+          ;; `uri-to-pkg-map'?
           (if (string= (gethash 'repo repo_from_precommit_config) uri)
               ;; It does, so push the pip package (with the version
               ;; information specified in the pre-commit file) to
-              ;; `pip_pkgs'.
+              ;; `pip-pkgs'.
               (progn
                 (push (concat
                        pkg
                        "=="
                        (gethash 'rev repo_from_precommit_config))
-                      pip_pkgs)
+                      pip-pkgs)
                 ;; If the pre-commit config file specifies any
                 ;; additional dependencies for the pre-commit hook,
                 ;; then iterate over them and push them onto
-                ;; `pip_pkgs' as well.
+                ;; `pip-pkgs' as well.
                 (mapc
                  (lambda (hook)
-                   (setq pip_pkgs (append (gethash 'additional_dependencies hook) pip_pkgs)))
+                   (setq pip-pkgs (append (gethash 'additional_dependencies hook) pip-pkgs)))
                  (gethash 'hooks repo_from_precommit_config)))))
-        uri_to_pkg_map))
+        uri-to-pkg-map))
      repos)
 
     ;; Use pip to install the dependencies gleaned from the pre-commit
     ;; config file, remembering to shell-quote if necessary.
     (async-shell-command (concat "pip install "
                                  (mapconcat 'shell-quote-argument
-                                            pip_pkgs " ")))))
+                                            pip-pkgs " ")))))
 
 (provide 'jsf9k)
 ;;; jsf9k.el ends here
