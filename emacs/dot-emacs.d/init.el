@@ -171,6 +171,22 @@
 (use-package pyenv-mode
   :ensure t)
 (load-file (expand-file-name "jsf9k.el" user-emacs-directory))
+;; Populate jsf9k/projectile-pre-commit-uri-to-pkg-map
+(puthash "https://github.com/PyCQA/bandit" "bandit"
+         jsf9k/projectile-pre-commit-uri-to-pkg-map)
+(puthash "https://github.com/psf/black-pre-commit-mirror" "black"
+         jsf9k/projectile-pre-commit-uri-to-pkg-map)
+(puthash "https://github.com/PyCQA/flake8" "flake8"
+         jsf9k/projectile-pre-commit-uri-to-pkg-map)
+(puthash "https://github.com/PyCQA/isort" "isort"
+         jsf9k/projectile-pre-commit-uri-to-pkg-map)
+(puthash "https://github.com/pre-commit/mirrors-mypy" "mypy"
+         jsf9k/projectile-pre-commit-uri-to-pkg-map)
+(puthash "https://github.com/asottile/pyupgrade" "pyupgrade"
+         jsf9k/projectile-pre-commit-uri-to-pkg-map)
+(puthash "https://github.com/adrienverge/yamllint" "yamllint"
+         jsf9k/projectile-pre-commit-uri-to-pkg-map)
+
 ;; Automatically select pyenv based on project name
 (defun projectile-pyenv-mode-set ()
   "Set pyenv version matching project name."

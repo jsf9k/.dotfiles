@@ -8,6 +8,15 @@
 (require 'projectile)
 (require 'yaml)
 
+(defvar jsf9k/projectile-pre-commit-uri-to-pkg-map
+  (make-hash-table :test 'equal)
+  "Hash table to associate pre-commit repositories with pip packages.
+
+The hash table has keys equal to the pre-commit repository URIs
+we're interested in and values equal to the corresponding pip
+packages (e.g. https://github.com/adrienverge/yamllint and
+yamllint, respectively).")
+
 (defun jsf9k/projectile-install-pre-commit-dependencies ()
   "Install pip dependencies from current project's pre-commit config file.
 
@@ -36,9 +45,11 @@ environment.  Thus I run into these sorts of problems:
   isn't installed in the local Python virtual environment.
 
 The solution is to parse the pre-commit configuration file,
-identify any Python-based linters that I would like to install
-locally, and install those dependencies via pip.  That is
-precisely what this function does."
+identify any Python-based linters whose pip packages I would like
+to install locally, and install those dependencies via pip.  That
+is precisely what this function does.  The linters of interest
+are identified in the variable
+`jsf9k/projectile-pre-commit-uri-to-pkg-map'."
   (interactive)
   (let (
         ;; This is the `repos' section of the pre-commit configuration
@@ -48,31 +59,18 @@ precisely what this function does."
                 (yaml-parse-string(f-read-text (concat
                                                 (projectile-project-root)
                                                 ".pre-commit-config.yaml")))))
-        ;; We will populate this hash table with keys equal to the
-        ;; pre-commit repository URIs we're interested in and values
-        ;; equal to the corresponding pip packages.
-        (uri-to-pkg-map (make-hash-table :test 'equal))
         ;; The pip packages to be installed.  This list will be
         ;; populated as we go.
         (pip-pkgs (list))
         )
-    ;; Populate uri-to-pkg-map
-    (puthash "https://github.com/PyCQA/bandit" "bandit" uri-to-pkg-map)
-    (puthash "https://github.com/psf/black-pre-commit-mirror" "black" uri-to-pkg-map)
-    (puthash "https://github.com/PyCQA/flake8" "flake8" uri-to-pkg-map)
-    (puthash "https://github.com/PyCQA/isort" "isort" uri-to-pkg-map)
-    (puthash "https://github.com/pre-commit/mirrors-mypy" "mypy" uri-to-pkg-map)
-    (puthash "https://github.com/asottile/pyupgrade" "pyupgrade" uri-to-pkg-map)
-    (puthash "https://github.com/adrienverge/yamllint" "yamllint" uri-to-pkg-map)
-
     ;; Iterate over each repo specified in the pre-commit config file
     (mapc
      (lambda (repo_from_precommit_config)
-       ;; Iterate over `uri-to-pkg-map'
+       ;; Iterate over `jsf9k/projectile-pre-commit-uri-to-pkg-map'
        (maphash
         (lambda (uri pkg)
           ;; Does the URI for this repo match one of the ones in
-          ;; `uri-to-pkg-map'?
+          ;; `jsf9k/projectile-pre-commit-uri-to-pkg-map'?
           (if (string= (gethash 'repo repo_from_precommit_config) uri)
               ;; It does, so push the pip package (with the version
               ;; information specified in the pre-commit file) to
@@ -89,13 +87,15 @@ precisely what this function does."
                 ;; `pip-pkgs' as well.
                 (mapc
                  (lambda (hook)
-                   (setq pip-pkgs (append (gethash 'additional_dependencies hook) pip-pkgs)))
+                   (setq pip-pkgs
+                         (append (gethash 'additional_dependencies hook)
+                                 pip-pkgs)))
                  (gethash 'hooks repo_from_precommit_config)))))
-        uri-to-pkg-map))
+        jsf9k/projectile-pre-commit-uri-to-pkg-map))
      repos)
 
     ;; Use pip to install the dependencies gleaned from the pre-commit
-    ;; config file, remembering to shell-quote if necessary.
+    ;; config file, remembering to shell-quote as necessary.
     (async-shell-command (concat "pip install "
                                  (mapconcat 'shell-quote-argument
                                             pip-pkgs " ")))))
