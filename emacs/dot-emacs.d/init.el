@@ -337,14 +337,11 @@
   (corfu-popupinfo-mode))
 (use-package cape
   :ensure t)
-;; Use Company backends as Capfs.
-;; (use-package company-ansible
-;;   :ensure t)
-;; (use-package company-terraform
-;;   :ensure t)
-;; (setq-local completion-at-point-functions
-;;   (mapcar #'cape-company-to-capf
-;;     (list #'company-ansible #'company-terraform)))
+(use-package eglot
+  :ensure t)
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+               '((dockerfile-mode dockerfile-ts-mode) . ("docker-language-server" "start" "--stdio"))))
 (use-package embark
   :ensure t
   :bind (("C-." . embark-act)))
@@ -429,32 +426,6 @@
 ;; terraform-mode
 (use-package terraform-mode
   :ensure t)
-
-;; company plugins
-;; (use-package company-anaconda
-;;   :ensure t
-;;   :config
-;;   (add-to-list 'company-backends 'company-anaconda))
-;; (use-package company-ansible
-;;   :ensure t)
-;;  :config
-;;  (add-to-list 'company-backends 'company-ansible))
-;; (use-package company-math
-;;   :ensure t
-;;   :config
-;;   (add-to-list 'company-backends 'company-math))
-;; (use-package company-restclient
-;;   :ensure t
-;;   :config
-;;   (add-to-list 'company-backends 'company-restclient))
-;; (use-package company-terraform
-;;   :ensure t)
-;;  :config
-;;  (add-to-list 'company-backends 'company-terraform))
-;; (use-package company-web
-;;   :ensure t
-;;   :config
-;;   (add-to-list 'company-backends 'company-web))
 
 ;; ace-window
 (use-package ace-window
