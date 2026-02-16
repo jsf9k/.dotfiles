@@ -395,6 +395,8 @@
 ;; python-mode
 (use-package python-mode
   :ensure t)
+(use-package pydoc
+  :ensure t)
 (use-package anaconda-mode
   :ensure t
   :hook ((python-mode)
@@ -414,6 +416,10 @@
 (use-package ansible-doc
   :ensure t)
 (add-hook 'yaml-mode-hook #'ansible-doc-mode)
+
+;; go
+(use-package go-mode
+  :ensure t)
 
 ;; haskell
 (use-package haskell-mode
