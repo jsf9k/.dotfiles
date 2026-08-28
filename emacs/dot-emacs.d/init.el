@@ -464,6 +464,14 @@
 (use-package systemd
   :ensure t)
 
+;; Major mode for JSON files
+(use-package json-mode
+  :ensure t)
+
+;; Major mode for JSON5 files
+(use-package json5-ts-mode
+  :ensure t)
+
 ;; winner mode
 (winner-mode 1)
 
