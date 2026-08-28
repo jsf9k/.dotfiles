@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;; I stole a lot of this from Bozhidar Batsov's personal
 ;; configuration: https://github.com/bbatsov/emacs.d
 

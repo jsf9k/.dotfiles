@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;;; jsf9k.el --- Provide some user-specific functionality
 
 ;;; Commentary:
