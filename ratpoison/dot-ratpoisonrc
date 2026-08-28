@@ -18,9 +18,9 @@ bind e exec emacs
 bind x exec xlock
 
 # Audio controls
-definekey top XF86AudioRaiseVolume exec amixer -q set Master 5+ unmute; amixer -q set "Headphone (null)" 5+ unmute; ratpoison -c "echo Volume +5"
-definekey top XF86AudioLowerVolume exec amixer -q set Master 5- unmute; amixer -q set "Headphone (null)" 5- unmute; ratpoison -c "echo Volume -5"
-definekey top XF86AudioMute exec amixer -q set Master toggle; amixer -q set "Headphone (null)" toggle; ratpoison -c "echo [ MUTE ]"
-bind greater exec amixer -q set Master 5+ unmute; amixer -q set "Headphone (null)" 5+ unmute; ratpoison -c "echo Volume +5"
-bind less exec amixer -q set Master 5- unmute; amixer -q set "Headphone (null)" 5- unmute; ratpoison -c "echo Volume -5"
-bind m exec amixer -q set Master toggle; amixer -q set "Headphone (null)" toggle; ratpoison -c "echo [ MUTE ]"
+definekey top XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5+ unmute; ratpoison -c "echo Volume +5"
+definekey top XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5- unmute; ratpoison -c "echo Volume -5"
+definekey top XF86AudioMute exec amixer -q -D pulse sset Master toggle; ratpoison -c "echo Toggle sound"
+bind greater exec amixer -q -D pulse sset Master 5+ unmute; ratpoison -c "echo Volume +5"
+bind less exec amixer -q -D pulse sset Master 5- unmute; ratpoison -c "echo Volume -5"
+bind m exec amixer -q -D pulse sset Master toggle; ratpoison -c "echo Toggle sound"
